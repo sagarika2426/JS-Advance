@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div1">
+    <h1>Heading1</h1>
+    <p>Paragraph</p>
+  </div>
+
+  <div id="div2">
+    <h1>Heading1</h1>
+    <p>Paragraph</p>
+  </div>
+
+
+  
+</body>
+</html>
+
+<script>
+  var divID = document.getElementById("div1").innerHTML
+  console.log(divID)
+
+  // innerText is giving only inner contents and innerHTML will give the content as well as the tag names
+
+ document.getElementById("div2").innerText= "New para";
+  console.log(divID2)
+</script>
