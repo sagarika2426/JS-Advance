@@ -1,0 +1,37 @@
+<!-- why we need innerText -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="https://i0.wp.com/thenexttrip.xyz/wp-content/uploads/2021/03/St.-Regis-Punta-Mita-Drunch-at-Sunset-820x1025.jpg" height="300px" width="350px">
+  <br>
+
+  <h3 id="like">Show Likes count here</h3>
+  <h3 id="dislike">Show Dislike count here</h3>
+  <button onclick="likeFn()">Like</button>
+  <button onclick="Dislikefn()">Dislike</button>
+  
+</body>
+</html>
+
+<script>
+  var likes = 0
+  var dislikes = 0
+
+  function likeFn(){
+    likes++
+    document.getElementById("like").innerText = "Likes" + " " + likes
+  }
+
+  function Dislikefn(){
+    dislikes++
+    document.getElementById("dislike").innerText = "Dislikes" + " " + dislikes
+  }
+
+
+</script>
