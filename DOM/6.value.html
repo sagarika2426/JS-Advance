@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <input id="name" type="text" placeholder="Enter Name" value="">
+  <input id="number" type="number" placeholder="Enter Mobile" value="">
+  <button onclick="valueFn()">Submit</button>
+  <h2 id="namedis">Display the name</h2>
+  <h2 id="numDis">Display the Number</h2>
+
+  <select id="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <!--here we have to give value becuase as we dont have to type anything in this type of situation so for all the options you need to provide value to store that value in the backend  -->
+  </select>
+  <button onclick="genderFn()"> Submt</button>
+  
+</body>
+</html>
+
+<script>
+  function valueFn(){
+    var getname = document.getElementById("name").value
+    var getNum = document.getElementById("number").value
+    document.getElementById("namedis").innerText= getname
+    document.getElementById("numDis").innerText= getNum
+    
+  }
+
+  function genderFn(){
+    var getgen = document.getElementById("gender").value
+    console.log(getgen)
+
+  }
+</script>
