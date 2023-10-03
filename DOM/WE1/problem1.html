@@ -1,0 +1,44 @@
+<!-- Create an age_check.html file. With an input field (takes the age of the user) and a button You must fill in valid id and other attributes for elements to make the buttons work.
+
+When the user clicks the button the following must happen:
+
+If the user is older than 18 print You can drive in India!.
+If the user is younger than 18 print You can't drive.
+If the user is exactly 18 years old print You are just old enough to drive! -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3 id="head">Check if you are Eligible to Drive or not</h3>
+  <br>
+  <input  id="age" type="number" placeholder="Enter your age" value="">
+  <button onclick="ageFn()">Submit</button>
+  
+</body>
+</html>
+
+<script>
+  function ageFn(){
+    var age_check = document.getElementById("age").value 
+    console.log(age_check)
+    if(age_check>18){
+      document.getElementById("head").innerText = "You can drive!"
+      document.getElementById("head").style.color = "green"
+
+    }
+    else if(age_check<18){
+      document.getElementById("head").innerText = "You are not Eligible to drive!"
+      document.getElementById("head").style.color = "red"
+    }
+    else if(age_check==18){
+      document.getElementById("head").innerText = "You are just old enough to drive!"
+      document.getElementById("head").style.color = "green"
+    }
+
+
+  }
+</script>
