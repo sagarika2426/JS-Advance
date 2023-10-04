@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="head1">I am heading1</h1>
+  <h2 class="head2">I am heading2</h2>
+  <h3 class="head2">I am heading3</h3>
+  <p class="head2">I am Para</p>
+  
+</body>
+</html>
+
+<script>
+  var h1 = document.getElementById("head1")
+  console.log(h1)
+
+  var h2 = document.getElementsByClassName("head2")
+  console.log(h2)
+  // it will give array of all the elements in array form
+  // so to access any one element then you can write like this
+  console.log(h2[0])
+  console.log(h2[1])
+  console.log(h2[2].innerText)
+  // to access innerText of h2 third element
+
+  
+  // using forloop 
+  for(var i = 0; i<h2.length; i++)
+  {
+    console.log(h2[i])
+  }
+  
+</script>
