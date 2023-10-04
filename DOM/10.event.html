@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button>Click here</button>
+  <button id="button1">Click here</button>
+  <button class="button2">Click here</button>
+
+  
+</body>
+</html>
+
+<script>
+  // click
+  // mouseenter - like hover
+  // dblclick
+
+  // AddEventListener(event, function)
+  // you can catch the button in any form using id, class, or only tag name
+  document.querySelector("button").addEventListener("click", function1)
+  document.querySelector("#button1").addEventListener("click", function1)
+  document.querySelector(".button2").addEventListener("click", function1)
+
+  function function1(){
+    console.log("someone clicked me")
+  }
+
+  // mouseenter - mouseleave
+  // with mouse enter the style will change but if we take the mouse out then it wont come to normal stage like hover so we need another function and apply that in the mouse leave event
+  document.querySelector("button").addEventListener("mouseenter", function2)
+  function function2(){
+    document.querySelector("button").style.backgroundColor = "red";
+  }
+
+  document.querySelector("button").addEventListener("mouseleave", function3)
+  function function3(){
+    document.querySelector("button").style.backgroundColor = "gray";
+  }
+
+
+</script>
