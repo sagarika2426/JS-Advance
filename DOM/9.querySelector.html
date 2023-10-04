@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>I am para1 </p>
+  <div id="div1"> I am div</div>
+  <h1 class="head1"> I am heading1</h1>
+  <h2 class="head1"> I am heading2</h2>
+  
+</body>
+</html>
+
+<script>
+
+  // tagName
+  var tag = document.getElementsByTagName("p")
+  console.log(tag)
+
+  // ID
+  var id = document.getElementById("div1")
+  console.log(id)
+
+  // className
+  var classname = document.getElementsByClassName("head1")
+  console.log(classname)
+
+
+  // querySelector - instead of using multiple syntax for tagname,classname, id, we can use query selector and use #,., tag name etc. 
+  var Qselector1 = document.querySelector("p")
+  console.log(Qselector1)
+
+  // querySelector will give the element which is the first elememt which matches the condition. so if we have 3 p tags or 3 classnames, it will return the 1st elements which is p tag and class name , not all
+
+  var Qselector2 = document.querySelector("#div1")
+  console.log(Qselector2)
+
+  var Qselector3 = document.querySelector(".head1")
+  console.log(Qselector3)
+
+  // to get all the elements using querySlectorAll. It will give you the output in form of array
+  var Qselector4 = document.querySelectorAll(".head1")
+  console.log(Qselector4)
+
+  // for Combinators - you can use querySlector/querySelectorAll, not getElemenet
+  var Qselector5 = document.querySelector("p+div+.head1")
+  console.log(Qselector5)
+
+
+
+</script>
+
