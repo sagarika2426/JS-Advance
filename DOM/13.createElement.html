@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>I am heading 1</h1>
+  
+</body>
+</html>
+<script>
+  // 1. creating element 
+  // 2. filling the innertext
+  // 3. Append into the body
+
+  var heading = document.createElement("h1")
+  heading.innerText = "I am heading 1"
+  document.querySelector("body").append(heading)
+
+  // if we want to make 100s of this
+
+  for(var i = 0; i<100; i++)
+  {
+  var heading = document.createElement("h1")
+  heading.innerText = "I am heading 1"
+  document.querySelector("body").append(heading)
+  }
+</script>
