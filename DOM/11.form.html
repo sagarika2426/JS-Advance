@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+</head>
+<body>
+
+  <form>
+    <input id="name" type="text" placeholder="name">
+    <input id="num" type="number" placeholder="number">
+    <input  id="button" type="submit" value="Login">
+
+  </form>
+  
+  
+</body>
+</html>
+
+<script>
+  // document.querySelector("#button").addEventListener("click", function1)
+  // function function1(){
+  //  var name1 = document.querySelector("#name").value 
+  //   var num1 = document.querySelector("#num").value
+  //   console.log(name1, num1)
+  
+  // }
+
+  // steps to use form 
+  // 1. wrap the inputs in form tag 
+  // 2. replace the button with input type = submit
+  // 3. if we want to change the name of the button then use value = "button name"
+  // add eventlistener to the form tag
+  // whenever you are using form, event name shoudl be submit instead if click
+  // form in default sebd the values to the backend and if we want to prevent that we can use event.preventDefault()
+
+  document.querySelector("form").addEventListener("submit", function1)
+
+  function function1(){
+    event.preventDefault()
+    var name1 = document.querySelector("#name").value 
+    var num1 = document.querySelector("#num").value
+    console.log(name1, num1)
+
+  }
+</script>
