@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <button>button 1</button>
+  <button>button 2</button>
+  <button>button 3</button>
+  <button>button 4</button>
+  <button>button 5</button>
+  <button>button 6</button>
+  <button>button 7</button>
+  <button>button 8</button>
+  <br> -->
+</body>
+</html>
+
+<script>
+
+  var btn_names = ["button 1", "button 2", "button 3", "button 4", "button 5", "button 6", "button 7", "button 8"]
+
+  var btn_bg = ["blue", "green", "yellow", "lightblue", "gray", "lightgreen", "pink"]
+
+  // instead of arrays we can use objects
+
+  var obj_button = [
+    {name:"button 1", bg_color: "pink", color:"black"},
+    {name:"button 2", bg_color: "red", color:"white"},
+    {name:"button 3", bg_color: "lightgreen", color:"black"},
+    {name:"button 4", bg_color: "darkgreen", color:"white"},
+    {name:"button 5", bg_color: "yellow", color:"black"},
+    {name:"button 6", bg_color: "lightgray", color:"black"},
+    {name:"button 7", bg_color: "black", color:"white"},
+    {name:"button 8", bg_color: "pink", color:"black"}]
+ 
+
+    obj_button.forEach(function(el){
+      var btn = document.createElement("button")
+      btn.innerText = el.name
+      btn.style.backgroundColor = el.bg_color
+      btn.style.color = el.color
+      document.querySelector("body").append(btn)
+    })
+
+
+  // for(var i = 0; i<8; i++)
+  // {
+  // var btn = document.createElement("button")
+  // btn.innerText = btn_names[i];
+  // btn.style.backgroundColor = btn_bg[i];
+  // document.querySelector("body").append(btn)
+  // }
+</script>
