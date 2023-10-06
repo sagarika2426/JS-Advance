@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body{
+        height: 100vh;
+        
+        /* background-image: linear-gradient(
+          to bottom,
+          white,
+          rgb(222, 207, 222)     
+        ); */
+      }
+      h1 {
+        text-align: center;
+        font-size: 60px;
+        color: purple;
+      }
+
+      #calculator {
+        height: 500px;
+        width: 400px;
+        /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        
+        margin: auto;
+        padding: 10px 40px;
+        border-radius: 30px;
+        padding-bottom:80px;
+        background-image: linear-gradient(
+          to bottom,
+          white,
+          rgb(222, 207, 222)     
+        );
+        /* background-color: rgb(220 215 232) */
+       
+        /* padding-top: 90px; */
+
+      }
+
+      #display {
+        height: 60px;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      
+        margin: auto;
+        border-radius: 10px;
+        background-color: white;
+        border: 2px solid black;
+      }
+
+      #keyboard {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 80px);
+        gap: 10px;
+        margin-top: 20px;
+       
+      }
+
+      #keyboard > div {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        border-radius: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        transition: all 0.5s ease-in-out;
+      }
+
+      #keyboard > div:hover {
+        background-color: #caabc8;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+      }
+
+      #keyboard> .black {
+        background-color: black;
+        color: white;
+      }
+
+      #keyboard>.red {
+        background-color: red;
+        color: white;
+      }
+      #display {
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+      }
+
+      #brand{
+        height: 60px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Calculator</h1>
+    <div id="calculator">
+      <div id="brand"><h3>CASIO</h3></div>
+      <div id="display"></div>
+      <div id="keyboard">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div class="black">+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div class="black">-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div class="black">*</div>
+        <div class="red">C</div>
+        <div>0</div>
+        <div class="black">=</div>
+        <div class="black">/</div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var keys = document.querySelectorAll("#keyboard>div");
+  var bag = "";
+
+  for (var i = 0; i < keys.length; i++) {
+    keys[i].addEventListener("click", myCalculator);
+  }
+
+  function myCalculator() {
+    var targetNumber = event.target.innerText;
+
+    if (targetNumber == "C") {
+      bag = "";
+      document.querySelector("#display").innerText = "";
+    } else if (targetNumber == "=") {
+      console.log(eval(bag));
+      document.querySelector("#display").innerText = eval(bag);
+    } else {
+      bag = bag + targetNumber;
+      document.querySelector("#display").innerText = bag;
+    }
+  }
+</script>
