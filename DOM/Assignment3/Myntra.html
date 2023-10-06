@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myntra</title>
+  <style>
+    #container{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 20px;
+      justify-content: center;
+    }
+    #container>div{
+      /* border: 1px solid black; */
+      padding: 10px;
+      width: 220px;
+      justify-content: center;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      height: 400px;
+      border-radius: 10px;
+      text-align: center;
+      background-image: linear-gradient(
+          to bottom,
+          white,
+          white,
+          rgb(237, 234, 234)     
+        );
+      /* box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset; */
+    }
+    img{
+      height: 250px;
+      width: auto;
+      margin: auto;         
+    }  
+    p{
+      color: gray;
+      margin: 0px;
+      margin-top: -9px;
+    }
+   
+  </style>
+</head>
+
+<body>
+  <div>
+
+  </div>
+  <div id="container"></div>  
+</body>
+</html>
+
+<script>
+
+  var data = [
+    {shoes_image: "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/6/b/tr:w-500,/6b4d20bMSHOET00002582_1.jpg?rnd=20200526195200", name: " Shoetopia", description: "Women Blue Walking Shoes/Running Shoes", price: "₹798"},
+    {shoes_image: "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/f/5/tr:w-500,/f567f6e702266_3.jpg", name: " Cultsport", description: "Active Women Pink Running Shoes", price: "₹2,500"},
+    {shoes_image: "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/e/3/tr:w-960,/e310917NF_SHOET00009234_1.jpg?rnd=20200526195200", name: " U.S. POLO ASSN", description: "Gemma Womens Walking White Shoes", price: "₹4,599"},
+    {shoes_image: "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/e/3/tr:w-960,/e310917NF_SHOET00009234_3.jpg?rnd=20200526195200", name: " Shoetopia", description: "Women White Solid Walking Shoes", price: "₹998"},
+    {shoes_image: "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/e/0/tr:w-960,/e0722f8NF_SHOET00011377_2.jpg?rnd=20200526195200", name: " Shoetopia", description: "Women Solid Tan Sneakers/Casual Sneakers", price: "₹1,198"},
+    {shoes_image: "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/f/3/tr:w-960,/f3a9c1cCultsport-701730_1.jpg?rnd=20200526195200", name: " Cultsport", description: "Firebird Mesh Women White Running Shoes", price: "₹2,500"},
+    {shoes_image: "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/4/a/tr:w-960,/4afbcecRLO1254_1.jpg?rnd=20200526195200", name: " Red Tape", description: "Women Colorblock Cream Walking Shoes", price: "₹2,798"},
+    {shoes_image: "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/6/b/tr:w-500,/6b4d20bMSHOET00002582_1.jpg?rnd=20200526195200", name: " Shoetopia", description: "Women Blue Walking Shoes/Running Shoes", price: "₹798"}, 
+    {shoes_image: "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/f/5/tr:w-500,/f567f6e702266_3.jpg", name: " Cultsport", description: "Active Women Pink Running Shoes", price: "₹2,500"},
+    {shoes_image: "https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/e/0/tr:w-960,/e0722f8NF_SHOET00011377_2.jpg?rnd=20200526195200", name: " Shoetopia", description: "Women Solid Tan Sneakers/Casual Sneakers", price: "₹1,198"}]
+
+    data.forEach(function(el){
+      var box = document.createElement("div")
+      var shoes_img = document.createElement("img")
+      shoes_img.setAttribute("src", el.shoes_image)
+
+      var shoes_name = document.createElement("h3")
+      shoes_name.innerText = el.name
+
+      var shoes_des = document.createElement("p")
+      shoes_des.innerText = el.description
+
+      var shoes_cost = document.createElement("h3")
+      shoes_cost.innerText = el.price
+
+      box.append(shoes_img, shoes_name, shoes_des, shoes_cost)
+
+      // append the box inside the container
+      document.querySelector("#container").append(box)
+    })
+</script>
