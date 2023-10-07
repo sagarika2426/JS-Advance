@@ -11,6 +11,7 @@
       grid-template-rows: repeat(2, auto);
       gap: 20px;
       justify-content: center;
+      width: 100%;
     }
     #container>div{
       /* border: 1px solid black; */
@@ -39,6 +40,39 @@
       margin: 0px;
       margin-top: -9px;
     }
+
+    /* small screen */
+  @media all and (min-width: 80px) and (max-width:450px){
+    #container{
+    
+      grid-template-columns: repeat(2, 200px);
+      grid-template-rows: repeat(5, auto);
+      gap: 10px;
+     
+
+    }
+    #container>div{
+      /* border: 1px solid black; */
+      padding: 10px;
+      width: 100px;
+     
+      height: 250px;
+     
+      /* box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset; */
+    }
+    img{
+      height: 120px;
+      width: auto;
+      margin: auto;         
+    }  
+
+    h3{
+      font-size: 15px;
+    }
+    p{
+      font-size: 12px;
+    }
+  }
    
   </style>
 </head>
