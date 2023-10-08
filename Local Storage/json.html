@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <h2>Local Storage</h2>
+  
+</body>
+</html>
+
+<script>
+  // Json Methods
+  // JSON.stringify()
+  // JSON.parse()
+
+  // / let's store array
+var arr = [1,2,3,4]
+localStorage.setItem("Numbers1", arr)
+var arr2 = localStorage.getItem("Numbers1")
+console.log(typeof arr2)
+// its string
+// so even if we give the value as arr, it can only store as number or string with this format
+
+// with the help if JSON.stringiy
+localStorage.setItem("Numbers2", JSON.stringify(arr))
+var arr3 = JSON.parse(localStorage.getItem("Numbers2"))
+console.log(typeof arr3)
+
+// it wiill be stored as an array
+// JSON.parse - after storing if you want to get the data in form of object
+
+// json vs obj
+// var jsonObj = {"name": "Sagarika"}
+// car obj = {name: "Sagarika"}
+
+
+// let's store obj
+var obj = {name : "Sagarika", lastName: "Sahoo"}
+localStorage.setItem("Name", JSON.stringify(obj))
+var output = JSON.parse(localStorage.getItem("Name"))
+console.log(output)
+</script>
