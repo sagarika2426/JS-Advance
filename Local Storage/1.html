@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<script>
+  // local storage space - 8mb
+  // only accepts strings and numbers
+  // setIetm - localStorage.setItem("key", value)
+
+  localStorage.setItem("name", "Sagarika")
+
+  var name2 = "Sahoo"
+  localStorage.setItem("lastName", name2)
+
+  // getItem - localStorage.getItem ("Key")
+  localStorage.getItem("name")
+// if you search any item which is not there on localstorage, you will get "null" in console
+
+// let's store array
+var arr = [1,2,3,4]
+localStorage.setItem("Numbers", arr)
+var arr2 = localStorage.getItem("Numbers")
+console.log(typeof arr2)
+// its string
+// so even if we give the value as arr, it can only store as number or string
+
+</script>
