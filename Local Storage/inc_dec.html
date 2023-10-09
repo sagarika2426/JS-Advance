@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1></h1>
+  <button id="inc">Increment</button>
+  <button id="dec">Decrement</button>
+
+  
+</body>
+</html>
+
+<script>
+  var count = 0; 
+  document.querySelector("h1").innerText= count
+
+  document.querySelector("#inc").addEventListener("click", FnInc)
+  function FnInc(){
+    count++
+    document.querySelector("h1").innerText= count
+
+  }
+
+  document.querySelector("#dec").addEventListener("click", FnDec)
+  function FnDec(){
+    count--
+    document.querySelector("h1").innerText= count
+
+  }
+
+  // in this above case when we refresh the h1 become 0. Let's say we want to keep the updated value in the page even if we refresh so:
+
+  var count;
+  if(localStorage.getItem("UpdatedValue")== null){
+    count=0
+  }
+  else{
+    count = localStorage.getItem("UpdatedValue")
+  }
+
+  document.querySelector("h1").innerText= count
+
+  document.querySelector("#inc").addEventListener("click", FnInc)
+  function FnInc(){
+    count++
+    document.querySelector("h1").innerText= count
+    localStorage.setItem("UpdatedValue", count)
+
+  }
+
+  document.querySelector("#dec").addEventListener("click", FnDec)
+  function FnDec(){
+    count--
+    document.querySelector("h1").innerText= count
+    localStorage.setItem("UpdatedValue", count)
+
+  }
+
+
+</script>
