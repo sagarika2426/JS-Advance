@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="home.css" />
+</head>
+<style>
+  #container{
+    display: grid;
+    width: 90%;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+  }
+  #container>div{
+    /* border: 1px solid black; */
+    padding: 10px;
+    width: 330px;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: auto;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset; */
+  }
+  img{
+    height: 200px;
+    width: auto;
+    margin: auto;         
+  }  
+
+  h4{
+    margin: 5px 20px;
+  }
+  p{
+    margin-top: 15px ;
+  }
+
+  button{
+    padding: 6px 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    font-size: 16px;
+    background-color: rgb(88, 3, 88);
+    color: white;
+    border: 0px;
+
+  }
+
+  button:hover{
+    background-color: green;
+  }
+  #filter{
+    display: flex   ;
+    background-color: gainsboro;
+  }
+  #filter>select{
+    
+     margin: 15px 5px;
+  font-size: 16px;
+  padding: 0.75%;
+  border: 1px solid black;
+  width: 200px;
+  border-radius: 5px;
+  
+  }
+  
+
+  
+  </style>
+<body>
+  <!-- Navbar -->
+  <div id="links">
+    <div><img src="https://us.123rf.com/450wm/zhanna26/zhanna261709/zhanna26170900035/85712562-black-silhouette-of-cat-vector-illustration.jpg?ver=6"></div>
+    <div><a href="homepage.html"  >Home</a></div>
+    <div><a href="form.html">Put for Adoption</a></div>
+    <div><a href="listing.html" style="text-decoration: underline;">Adoption Listing</a></div>
+
+    
+  </div>
+  
+  <div id="filter">
+    <select class="filter" id="sort_age" onchange="handleAgeSort()">
+    <!-- onchange is also an event , we use it ehen we use select instead of onclick -->
+    <option>Sort By Age</option>
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+
+  <select class="filter" id="filter_gender" onchange="handleGenFilter()">
+    <option>Filter by Gender</option>
+    <option value="Female">Female</option>
+    <option value="Male">Male</option>
+  </select>
+
+  <select class="filter" id="filter_breed" onchange="handleBreedFilter()">
+    <option>Filter by Breed</option>
+    <option value="Himalayan">Himalayan</option>
+    <option value="Persian">Persian</option>
+    <option value="Maine-Coon">Maine-Coon</option>
+    <option value="Indie">Indie</option>
+    <option value="Bengal">Bengal</option>
+  </select></div>
+  <div id="container"></div>
+  
+</body>
+</html>
+
+<script>
+  var DataArr = JSON.parse(localStorage.getItem("CatList"))
+  displayData(DataArr)
+
+  //For Sorting Age 
+  function handleAgeSort(){
+    var selected = document.querySelector("#sort_age").value;
+    console.log(selected);
+
+    if(selected == "asc"){
+      DataArr.sort(function(a,b){
+        if(a.CatAge > b.CatAge){
+          return 1
+        }
+        else if(a.CatAge< b.CatAge){
+          return -1;
+        }
+        else{
+          return 0;
+        }
+      });
+      console.log(DataArr)
+      displayData(DataArr)
+
+    }
+    if(selected == "desc"){
+      DataArr.sort(function(a,b){
+        if(a.CatAge > b.CatAge){
+          return -1
+        }
+        else if(a.CatAge< b.CatAge){
+          return 1;
+        }
+        else{
+          return 0;
+        }
+      });
+      console.log(DataArr)
+      displayData(DataArr)
+
+    }
+  }
+  
+  // For Filter by Breed
+  function handleBreedFilter(){
+    var selected_B= document.querySelector("#filter_breed").value;
+    console.log(selected_B);
+
+    var filterList_B = DataArr.filter(function(el){
+      return el.CatBreed == selected_B;
+    })
+    console.log(filterList_B)
+    displayData(filterList_B)
+    }
+
+  // For Filter by Gender
+  function handleGenFilter(){
+    var selected = document.querySelector("#filter_gender").value;
+    console.log(selected);
+
+    var filterList = DataArr.filter(function(el){
+      return el.CatGen == selected;
+    })
+    console.log(filterList)
+    displayData(filterList)
+    }
+  
+  function displayData(DataArr){
+  document.querySelector("#container").innerHTML = ""
+  DataArr.forEach(function(el){
+    
+      var box = document.createElement("div")
+      var cat_img = document.createElement("img")
+     cat_img.setAttribute("src", el.CatImg)
+
+      var cat_name = document.createElement("h2")
+      cat_name.innerText = el.CatName
+
+      var cat_breed = document.createElement("h4")
+      cat_breed.innerText = "Breed" +":"+  " "+ el.CatBreed
+
+      var cat_age = document.createElement("h4")
+      cat_age.innerText = "Age"+":"+  " "+ el.CatAge + " " + "Months"
+
+      var cat_gen = document.createElement("h5")
+      cat_gen.innerText = el.CatGen
+
+      var owner_contact = document.createElement("p")
+      owner_contact.innerText = "Owner Contact"+ ": "+ el.ownerNum
+
+      var adopt_button = document.createElement("button")
+      adopt_button.innerText = "Adopt Me"
+
+      box.append(cat_img, cat_name,cat_breed, cat_age,cat_gen, owner_contact, adopt_button)
+
+      /* // append the box inside the container */
+      document.querySelector("#container").append(box)
+    
+  })
+}
+</script>
