@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <style>
+    body{
+      background-image: url("https://img.freepik.com/premium-vector/young-woman-pet-flat-style-happy-girl-holding-cat-her-arms-cute-vector-illustration_647188-151.jpg");
+      background-repeat:no-repeat;
+      background-position: right;
+      background-size: 450px;
+      
+    }
+    #form{
+      background-color: rgb(246, 241, 246);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+    #links>div>img{
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+}
+  </style>
+
+  <body>
+    <!-- Navbar -->
+    <div id="links">
+      <div><img src="https://us.123rf.com/450wm/zhanna26/zhanna261709/zhanna26170900035/85712562-black-silhouette-of-cat-vector-illustration.jpg?ver=6"></div>
+      <div><a href="homepage.html"  >Home</a></div>
+    <div><a href="form.html" style="text-decoration: underline;">Put for Adoption</a></div>
+    <div><a href="Listed.html">Adoption Listing</a></div>
+    </div>
+    <form id="form">
+      <h2  style="color: purple;">Enter Your Details</h2>
+      <input placeholder="Enter Your Name" id="name" type="text" />
+      <input placeholder="Enter Your Email" id="email" type="email" />
+      <input placeholder="Enter Your Contact Number" id="number" type="number" /><br><br>
+
+      <h2  style="color: purple;">Enter Cat Details</h2>
+      <input placeholder="Enter Your Cat's Name" id="catname" type="text" />
+      <input placeholder="Enter Cat age in months" id="catage" type="number" />
+      
+      <h4>Breed</h4>
+      <select id="Breed">
+        
+        <option value="Himalayan">Himalayan</option>
+        <option value="Persian">Persian</option>
+        <option value="Maine-Coon">Maine Coon</option>
+        <option value="Indie">Indie</option>
+        <option value="Bengal">Bengal</option>
+      </select>
+      <h4>Gender</h4>
+      <select id="gender">
+        
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      <input type="text" placeholder="Upload Image of the cat" id="catImg">
+     
+      <input id="submit" type="submit" />
+    </form>
+  </body>
+
+  <script>
+    document.querySelector("#form").addEventListener("submit", CatSubmit);
+    var CatArr = JSON.parse(localStorage.getItem("CatList")) || [];
+
+    function CatSubmit() {
+      event.preventDefault();
+      document.querySelector("#submit").style.backgroundColor = "green";
+    
+      var CatObj = {
+        ownerName: document.querySelector("#name").value,
+        ownerEmail: document.querySelector("#email").value,
+        ownerNum: document.querySelector("#number").value,
+        CatName: document.querySelector("#catname").value,
+        CatAge: document.querySelector("#catage").value,
+        CatBreed: document.querySelector("#Breed").value,
+        CatGen: document.querySelector("#gender").value,
+        CatImg:document.querySelector("#catImg").value
+        
+      };
+      CatArr.push(CatObj);
+      console.log(CatArr);
+      localStorage.setItem("CatList", JSON.stringify(CatArr));
+      // redirect to applied jobs
+      // window.location.href = "applied.html";
+
+      document.querySelector
+    }
+
+
+  </script>
