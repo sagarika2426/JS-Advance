@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="common.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favourites</title>
+  </head>
+  <body>
+    <div id="navbar">
+      <h1><a href="index.html">Home</a></h1>
+      <h1><a href="./matches.html">Matches</a></h1>
+      <h1><a href="./favourites.html">Favourites</a></h1>
+    </div>
+    <h1 class="heading">Favourites</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Match Number</th>
+          <th>Team A</th>
+          <th>Team B</th>
+          <th>Date</th>
+          <th>Venue</th>
+          <th>Remove as Favourite</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- All the favourite matches gets appended here  -->
+      </tbody>
+    </table>
+  </body>
+</html>
+
+<script>
+   var FavouriteArr =  JSON.parse(localStorage.getItem("favourites"));
+    displayData(FavouriteArr);
+
+    function displayData(data) {
+  
+      data.forEach(function(elem, index) {
+        var tr = document.createElement("tr");
+
+        var td1 = document.createElement("td");
+        td1.innerText = elem.MatchNumber;
+
+        var td2 = document.createElement("td");
+        td2.innerText = elem.Ateam;
+
+        var td3 = document.createElement("td");
+        td3.innerText = elem.Bteam;
+
+        var td4 = document.createElement("td");
+        td4.innerText = elem.MatchDate;
+
+        var td5 = document.createElement("td");
+        td5.innerText = elem.MatchVenue;
+
+        var td6 = document.createElement("td");
+        td6.innerText = "Delete";
+        td6.style.color = "red";
+        td6.style.cursor = "pointer";
+        td6.addEventListener("click", function () {
+          deleteItem(elem, index);
+        });
+    
+
+        tr.append(td1, td2, td3, td4, td5,td6);
+
+        document.querySelector("tbody").append(tr);
+      });
+    }
+
+    function deleteItem(elem, index) {
+      FavouriteArr.splice(index, 1);
+      localStorage.setItem("favourites", JSON.stringify(FavouriteArr));
+      window.location.reload();
+    }
+    
+</script>
