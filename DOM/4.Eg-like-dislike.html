@@ -6,15 +6,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    *{
+      text-align: center;
+    }
+    button{
+      padding: 7px 25px;
+      /* border: 1px solid black; */
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <img src="https://i0.wp.com/thenexttrip.xyz/wp-content/uploads/2021/03/St.-Regis-Punta-Mita-Drunch-at-Sunset-820x1025.jpg" height="300px" width="350px">
-  <br>
+  <img src="https://img.freepik.com/premium-vector/woman-driver-drives-white-car-road-front-view-vector-flat-illustration_531064-1897.jpg" height="300px" width="400px">
 
-  <h3 id="like">Show Likes count here</h3>
-  <h3 id="dislike">Show Dislike count here</h3>
-  <button onclick="likeFn()">Like</button>
-  <button onclick="Dislikefn()">Dislike</button>
+
+  <h4 id="like">Likes : 0</h4>
+  <h4 id="dislike">Dislikes : 0</h4>
+  <button style="background-color: #658178; color: white;" onclick="likeFn()">Like</button>
+  <button style="background-color: #e9ccd5;" onclick="Dislikefn()">Dislike</button>
+  <br><br>
+  <hr>
+
+  <h2 id="head">Check if you are Eligible to Drive or not</h2>
+
+  <input  id="age" type="number" placeholder="Enter your age" value="">
+  <button style="background-color: #c7beba;" onclick="ageFn()">Submit</button>
   
 </body>
 </html>
@@ -25,12 +43,33 @@
 
   function likeFn(){
     likes++
-    document.getElementById("like").innerText = "Likes" + " " + likes
+    document.getElementById("like").innerText = "Likes:" + " " + likes
+    document.getElementById("like").style.color="green"
   }
 
   function Dislikefn(){
     dislikes++
-    document.getElementById("dislike").innerText = "Dislikes" + " " + dislikes
+    document.getElementById("dislike").innerText = "Dislikes:" + " " + dislikes
+    document.getElementById("dislike").style.color="red"
+  }
+
+  function ageFn(){
+    var age_check = document.getElementById("age").value 
+    console.log(age_check)
+    if(age_check>18){
+      document.getElementById("head").innerText = "You can drive!"
+      document.getElementById("head").style.color = "green"
+
+    }
+    else if(age_check<18){
+      document.getElementById("head").innerText = "You are not Eligible to drive!"
+      document.getElementById("head").style.color = "red"
+    }
+    else if(age_check==18){
+      document.getElementById("head").innerText = "You are just old enough to drive!"
+      document.getElementById("head").style.color = "green"
+    }
+
   }
 
 
