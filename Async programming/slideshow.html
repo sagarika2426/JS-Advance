@@ -7,8 +7,31 @@
 </head>
 <body>
   <input type="url" id="url"/>
-  <button onclick="stroreImg()">Store Image</button>
+  <button onclick="storeImg()">Store Image</button>
   <button onclick="slideshow()">Show SlideShow</button>
   
 </body>
 </html>
+<script>
+
+  function slideshow(){
+    window.location.href = "slideshow2.html"
+  }
+
+
+
+  function storeImg(){
+  // step 1:  accept user input
+  let image_url = document.getElementById("url").value 
+
+  // there should be an array present to push images
+  // step 2: pick up either local storage arry or create empty array
+
+  let images = JSON.parse(localStorage.getItem("images")) || [];
+  images.push(image_url);
+  
+  localStorage.setItem("images", JSON.stringify(images));
+  document.getElementById("url").value = null;
+
+  }
+</script>
