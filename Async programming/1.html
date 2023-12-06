@@ -12,15 +12,21 @@
 </body>
 </html>
 <script>
-  let h1 = document.getElementById("counter");
-  function counter(){
-    let i = 0;
-    setInterval(function(){
-      i=i+1;
-      h1.innerText = i;
+  let h1  = document.getElementById("counter");
+function counter(){
+  let i = 0; 
+  // setInterval will add 1 to the i in every 1000 milisecond/ 1 sec
+  setInterval(function(){
+    if(i===60){
+      i=0;
+      // if the i will be 60 then the timer will start from 0 again
+    }
+    i = i+1;
 
-    }, 1000)
-  }
+    // console.log(i);
+    h1.innerText=i;
+  }, 100)
+}
 
-  counter()
+counter()
 </script>
