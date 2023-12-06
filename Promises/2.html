@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="loading_img" src="https://t3.ftcdn.net/jpg/05/14/75/82/360_F_514758236_i8rnB85PVdEaK19yGaK0TpaYEYMyxOL5.jpg">
+</body>
+</html>
+
+
+<script>
+
+    let image = document.getElementById("loading_img");
+// checking content logic, not actually getting the contents
+    function checkContent(){
+        return true;
+    }
+
+    
+
+
+    let content_promise = new Promise(function(resolve, reject){
+
+        let content = checkContent();
+    
+        setTimeout(function(){
+              // if content is loaded it is resolved
+        //  if content is not loaed . reject
+
+        if (content === true){
+            resolve("content is loaded");
+            // whatever we pass as an argument it will return that
+        }
+        else{
+            reject("Failed to Load");
+        }
+        
+        }, 3000)
+      
+    });
+
+    console.log("content_promise:", content_promise)
+
+    // how to grab the promise value?
+    //  by using .then and .catch
+ 
+    content_promise.then(function(value){
+        console.log("value:", value)
+        // .then : to grab resolve value
+        image.src = "https://teak.wihardja.com.sg//successful-logo-01.png"
+    });
+
+    content_promise.catch(function(error){
+        console.log("error:", error)
+        // .catch : to grab rejected value
+    })
+
+
+</script>
