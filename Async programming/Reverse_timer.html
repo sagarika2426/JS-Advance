@@ -16,14 +16,15 @@
   function counter(){
     let i = 60;
     let id1 = setInterval(function(){
-      if(i===1){
-        clearInterval(id1);
-        alert("Timeout!!");
-      }
       i=i-1;
       h1.innerText = i;
 
-    }, 100)
+      if(i===0){
+        clearInterval(id1);
+        alert("Timeout!!");
+      }
+      
+    }, 1000)
   }
 
   counter()
