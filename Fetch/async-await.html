@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    
+</body>
+</html>
+
+<script>
+
+        const url = "https://reqres.in/api/users";     
+        
+        async function getData(){
+            try{
+                let res = await fetch(url);
+                let users = await res.json();
+                append(users.data)
+
+                console.log(users.data)
+            } catch(err){
+                console.log(err)
+            }
+        
+    }
+
+    getData();
+
+
+    // instead of using .then and .catch we use try and catch in Async await
+    // await means we are waiting for the response
+    // if we are using await, the outer function should be async
+    // if is like ef else
+    // try something and if it gives error it will come on catch
+
+    function append(data){
+        let container = document.getElementById("container");
+        data.forEach(function(el){
+            let img = document.createElement("img");
+            img.src = el.avatar;
+
+            let h2 = document.createElement("h2");
+            h2.innerText = el.first_name;
+
+            let p = document.createElement("p");
+            p.innerText = el.email;
+
+            let div = document.createElement("div");
+            div.append(img, h2, p);
+
+            container.append(div)
+        })
+    }
+
+
+</script>
