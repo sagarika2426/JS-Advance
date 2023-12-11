@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Fetch API</h3>
     
 </body>
 </html>
@@ -15,23 +16,48 @@
 //  <!-- Fulfilled  - giv us the data -->
 // <!-- Pending - Delay take time -->
 // <!-- Rejected- M-ay reject our request -->
-    
 
-// let x = fetch();
-// console.log(x);
+//  why fetch? mordern way of making network requests
 
-// youtube API, googlemap, facebook, twiteer etc is free
+// free APIs- Insta, youtube API, facebook, twiteer 
 
 // reqres.in - free API
-//  everydata that is stored in the dasebase is in the object form - array of objects -->
+// everydata that is stored in the dasebase is in the object form 
+// array of objects
+
+// fetch API Syntax:-
+
+// fetch(url)
+// .then(function(){
+// })
+// .catch(function(){
+// });
+
+
+// let a = fetch();
+// console.log(a);
 
 
 const url = "https://reqres.in/api/users"; 
-fetch(url).then(function(res){
-    console.log(res);
-}).catch(function(err){
-    console.log(err);
+fetch(url)
+.then(function(res){
+    // console.log(res);
+    return res.json()
+    // if we want to make the data readable then we have to collect the data 
+    // and for that res.json code is used
+})
+.then(function(res){
+    console.log(res.data)
+
+})
+.catch(function(err){
+    console.log(err)
 });
+
+// readable + stream 
+// data are in the form of stream (data will come in group,separated)
+// to read the data we have to collect the stream
+
 </script>
 
 
