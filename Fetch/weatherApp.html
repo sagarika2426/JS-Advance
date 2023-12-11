@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mainbox {
+            display: flex;
+            justify-content: center;
+        }
+        #container{
+            display: grid;
+            justify-content: center;
+            text-align: center;
+
+        }
+
+        .gmap_canvas {
+            overflow:hidden;
+            background:none!important;
+            height:600px;
+            width:800px;
+            
+            }
+
+         .mapouter{
+            display: flex;
+            justify-content: center;
+            padding-left: 250px;
+
+         }   
+         body{
+            background-image: url("https://img.freepik.com/premium-photo/blue-sky-gradient-abstract-background_608068-1591.jpg");
+            background-repeat:no-repeat;
+           
+            background-size: 100%;
+      
+    }
+    button{
+        background-color: rgb(149, 15, 15);
+        color: white;
+        padding: 7px 25px;
+        border-radius: 5px;
+        border: 0px;
+    }
+    h4{
+        border: 1px solid black;
+        padding: 5px 30px;
+        margin-top: 20px;
+        color: rgb(149, 15, 15);
+        border-radius: 10px;
+        background-color: white;
+    }
+    h1{
+        margin-bottom: -10px;
+    }
+
+           
+    </style>
+</head>
+<body>
+   <div id="mainbox">
+    
+    <input placeholder="Enter city name" type="text" id="city">
+    <button onclick="getData()"> Search </button>
+</div>
+    <div id="container"></div>
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe 
+            width="600" 
+            height="500" 
+            id="gmap_canvas" 
+            frameborder="0" 
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0"
+            ></iframe>
+            <!-- An inline frame (iframe) is a HTML element that loads another HTML page within the document. 
+                It essentially puts another webpage within the parent page. -->
+            
+        </div>
+    </div>
+   
+</body>
+</html>
+
+<script>
+    // API Key - 161d1f3528e5e151b8cd7d1be5f0d1ce
+    // url - https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+    
+    const api_key = "161d1f3528e5e151b8cd7d1be5f0d1ce"
+
+    async function getData(){
+        let city = document.getElementById("city").value;
+        // let url = "https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}";
+        let url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api_key
+
+        // console.log(url);
+
+        try{
+                let res = await fetch(url);
+                // console.log(res);
+                let data = await res.json();
+                append(data);
+                console.log(data);
+
+            } catch(err){
+                console.log(err);
+            }
+    }
+
+
+    function append(data){
+        let container = document.getElementById("container");
+        container.innerHTML = null;
+            let city_name = document.createElement("h1")
+            city_name.innerText = data.name;
+
+            // let temp_value = document.createElement("h4")
+            // temp_value.innerText = "Temperature: " + data.main.temp + "K";
+
+            let celcius = document.createElement("h4")
+            celcius.innerText = "Temperature of the City: " + Math.round(data.main.temp - 273.15) + "°C"
+
+            container.append(city_name,celcius);
+
+            // map src - src="https://maps.google.com/maps?q=mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+
+            // removed the src from ifrome from html and added the src dynamic with the city name
+
+            let iframe = document.getElementById("gmap_canvas")
+            iframe.src = src="https://maps.google.com/maps?q=" + data.name +"&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+    }
+
+</script>
+
+
