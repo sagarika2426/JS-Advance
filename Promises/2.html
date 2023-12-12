@@ -4,11 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #mainbox{
+            height: 100vh;
+            width: 100%;
+            /* border: 1px solid black; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+                       
+
+        }
+
+        /* img{
+            height: 400px;
+            width: 600px;
+        } */
+    </style>
 </head>
+
 <body>
-    <img id="loading_img" src="https://t3.ftcdn.net/jpg/05/14/75/82/360_F_514758236_i8rnB85PVdEaK19yGaK0TpaYEYMyxOL5.jpg">
+   <div id="mainbox">
+    <img id="loading_img" src="https://i.pinimg.com/originals/c7/e1/b7/c7e1b7b5753737039e1bdbda578132b8.gif">
+   </div>
 </body>
 </html>
+
 
 
 <script>
@@ -50,7 +71,7 @@
     content_promise.then(function(value){
         console.log("value:", value)
         // .then : to grab resolve value
-        image.src = "https://teak.wihardja.com.sg//successful-logo-01.png"
+        image.src = "https://i.morioh.com/24bcadcdcd.png"
     });
 
     content_promise.catch(function(error){
