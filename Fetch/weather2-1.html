@@ -35,7 +35,7 @@
         .gmap_canvas {
             overflow:hidden;
             background:none!important;
-            height:300px;
+            height:350px;
             width:800px;
             
             }
@@ -166,10 +166,10 @@
             celcius.innerText = Math.round(data.main.temp - 273.15) + "°C"
 
             let humid = document.createElement("h5")
-            humid.innerText = "Humidity: " + data.main.humidity
+            humid.innerText = "Humidity: " + data.main.humidity 
 
             let wind = document. createElement("h5")
-            wind.innerText = "Wind: " +  data.wind.speed
+            wind.innerText = "Wind: " +  data.wind.speed + "m/s WNW" 
 
 
 
