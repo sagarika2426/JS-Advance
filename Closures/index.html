@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+</head>
+<style>
+    input{
+        width: 200px;
+        
+    }
+
+    #movies{
+        height: 200px;
+        width: 206px;
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <input oninput="main()" type="text" id="query"/>
+    <!--  oninput eventlisten occurs when an element gets user input-->
+    <div id="movies"></div>
+</body>
+</html>
+
+<script>
+// Accept the input
+// Fetch the data
+// Append the data
+
+function main(){
+    let query = document.getElementById("query").value
+    console.log("query", query)
+
+}
+
+
+</script>
