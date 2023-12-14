@@ -15,11 +15,13 @@
         height: 200px;
         width: 206px;
         border: 1px solid black;
+        overflow: scroll;
+        /* with overflow we can decide how we want to show the data id the data is too much */
     }
 </style>
 
 <body>
-    <input oninput="main()" type="text" id="query"/>
+    <input oninput="debounceFn(main, 2000)" type="text" id="query"/>
     <!--  oninput eventlisten occurs when an element gets user input-->
     <div id="movies"></div>
 </body>
@@ -31,25 +33,78 @@
 // Append the data
 // OMDB API : https://www.omdbapi.com/?i=tt3896198&apikey=9077980b
 
+let movies_div = document.getElementById("movies")
+let id;
 
-function searchMovies(q){
+async function searchMovies(q){
+
+    try {
     let url = "http://www.omdbapi.com/?s=" +q+ "&apikey=9077980b"
     let res = await fetch(url);
     let data = await res.json();
 
     // res.collect - it doesnt convert into json, it just collects the data
-    console.log(data);
+    // console.log(data);
+
+    return data.Search;
+    // data.search because array of object is not inside data, it is inside search which is present in data
+
+        
+    } catch (error) {
+        console.log("error", error)
+        
+    }
+    
+}
+
+function appendMovies(movies){
+    
+    movies_div.innerHTML = null;
+    // for some characters the value of movies will be undefined as it's too much data
+    // for those characters we dont want to run the program
+    
+    if(movies === undefined){
+        return false;
+    }
+    // and else the below function will work
+
+    movies.forEach(function(el){
+        let p = document.createElement("P")
+        p.innerText = el.Title;
+        // we want to show the movie title in the div so we created ap tag where we will display the data
+
+        movies_div.append(p);
+    })
 }
 
 
-function main(){
+async function main(){
     let query = document.getElementById("query").value
     // console.log("query", query)
 
      let x = searchMovies(query);
-     console.log(x);
+    //  searchmovies is returning a promise
+    //  console.log("x:", x);
+    //  searchmovies is returning a promise, async fn , no matter what it returns a promise
+    
+    let data = await x;
+    // here we dont have to put .json as we have already used it for collection of data
+    // console.log("data:", data)
+
+    appendMovies(data);
 
 }
 
+//  debouncing
 
+function debounceFn(func, delay){
+    // if we have id then delete the old timeout
+        if(id){
+            clearTimeout(id)
+        }
+ id = setTimeout(function(){
+        func()
+    }, delay)
+
+}
 </script>
