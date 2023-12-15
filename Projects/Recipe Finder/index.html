@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+ 
+</head>
+<style>
+    body{
+        /* padding: 0px; */
+        margin: 0px;
+    }
+    #recipe_results{
+        /* border: 1px solid black; */
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 20px 40px;
+        text-align: center;
+        
+    }
+
+    #mainbox>div>div{
+        /* border: 1px solid red; */
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    #mainbox{
+        margin-top: 10px;
+        padding: 20px;
+        /* background-image: url("https://images.template.net/113397/world-food-day-design-background-oqqv3.png");
+        background-repeat:no-repeat;
+           
+        background-size: ; */
+    }
+
+    
+
+    img{
+        width: 280px;
+    }
+
+    input{
+      padding: 5px;
+      margin-bottom: 30px;
+      width: 250px;
+      height: 25px;
+      border-radius: 10px;
+      
+    }
+    #topbox{
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;;
+        padding-top: 20px;
+        background-color: beige;
+    }
+
+    a{
+        /* border: 1px solid black; */
+        padding: 8px 15px;
+        text-decoration: none;
+        border-radius: 10px;
+        color: white;
+        background-color: rgb(150, 0, 0);
+        
+    }
+    h1{
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div id="topbox"><input type="text" id="recipe_query" oninput="debounceFn(main, 1000)" placeholder="Search Recipe"/>
+    </div>
+    <div id="mainbox">
+        <h1>Search Dish Name To Get The Recipe! </h1>
+        <div id="recipe_results">
+           
+        
+        </div>
+    </div>
+
+
+    <script src="logic.js"></script>
+    
+</body>
+</html>
