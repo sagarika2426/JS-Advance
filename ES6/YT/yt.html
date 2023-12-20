@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #results{
+            display: grid;
+            grid-template-columns: repeat(3, 30%);
+            grid-gap: 5%;
+            /* border: 1px solid black; */
+            margin-top: 40px;
+            padding: 10px;
+        }
+        #topbox{
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;;
+        padding-top: 20px;
+        background-color: white;
+        display: flex;
+    }
+    
+    input{
+      padding: 5px;
+      margin-bottom: 30px;
+      width: 450px;
+      height: 25px;
+      border-radius: 20px;
+      /* margin-right: 200px; */
+      border: 1px solid black;
+      
+    }
+
+    button{
+        background-color:#CD201F;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 10px;
+        height: 35px;
+        margin-right: 100px;
+        margin-left: 10px;
+        border: 1px solid #CD201F;
+
+    }
+    #topbox>img{
+        width: 200px;
+        margin-right: 250px;
+        margin-top: -30px;
+
+    }
+
+    button:hover{
+        background-color: #8c1313;
+        color: white;
+        border: 1px solid #CD201F;
+    }
+
+    iframe{
+        width: 390px;
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    #results>div{
+        width: 395px;
+        height: 290px;
+        /* border: 1px solid black; */
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 5px;
+        border-radius: 10px;
+
+    }
+
+    #results>div>h4{
+        margin-left:5px;
+        margin-right:5px;
+
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+     <div id="topbox">
+        <img src="https://t3.ftcdn.net/jpg/03/00/38/90/360_F_300389025_b5hgHpjDprTySl8loTqJRMipySb1rO0I.jpg">
+        <input type="text" id="query" placeholder="Search">
+        <button onclick="search()">Search</button>
+    </div>
+
+    <div id="results"></div>
+    
+    
+</body>
+</html>
+<script src="logic.js"></script>
